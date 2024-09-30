@@ -1,165 +1,88 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+/* src/ExpenseTracker.module.css */
+.container {
+    max-width: 600px;
+    margin: 40px auto; /* เพิ่ม margin-top ให้กล่องมีพื้นที่มากขึ้น */
+    padding: 30px;
+    background-color: #ffffff; /* เปลี่ยนพื้นหลังให้ดูสว่างสะอาดตา */
+    border-radius: 12px; /* เพิ่มความโค้งมน */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* ปรับขนาดเงาให้ลึกขึ้นเล็กน้อย */
+    transition: transform 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.container:hover {
+    transform: translateY(-5px); /* เพิ่มการยกตัวเล็กน้อยเมื่อ hover */
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 180px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
+.title {
     text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+    color: #2c3e50; /* ใช้สีที่เข้มขึ้นแต่ดูทันสมัย */
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.form {
+    margin: 25px 0;
+}
+
+.label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 16px;
+}
+
+.input, .select, .textarea {
+    width: 100%;
+    padding: 12px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ดูทันสมัย */
+    margin-bottom: 15px; /* เพิ่มพื้นที่ระหว่างฟิลด์ */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* เพิ่มความโค้งมน */
+    font-size: 16px; /* ปรับขนาดฟอนต์ให้ดูอ่านง่าย */
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2); /* เพิ่มเงาเมื่อโฟกัส */
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px; /* เพิ่มความโค้งมน */
+    cursor: pointer;
+    font-size: 18px; /* เพิ่มขนาดตัวอักษร */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); /* เพิ่มเอฟเฟกต์ยกตัว */
+}
+
+.records {
+    margin-top: 30px;
+}
+
+.record {
+    background-color: #e3f2fd;
+    border-left: 6px solid #2196F3; /* ปรับให้หนาขึ้นเล็กน้อย */
+    padding: 15px; /* เพิ่ม padding */
+    margin: 15px 0; /* เพิ่มระยะห่าง */
+    border-radius: 8px; /* เพิ่มความโค้งมน */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* เพิ่มเงาอ่อน */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.record:hover {
+    background-color: #bbdefb; /* เปลี่ยนสีเมื่อ hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเมื่อ hover */
 }
